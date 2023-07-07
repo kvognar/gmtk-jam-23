@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://bi2afaq273fgy"]
+
+[ext_resource type="PackedScene" uid="uid://crssu6c1qrs5e" path="res://Utilities/emitter.tscn" id="1_c260g"]
+[ext_resource type="PackedScene" uid="uid://bjjwv0le10nw3" path="res://Objects/mosquito.tscn" id="2_tgu51"]
+[ext_resource type="PackedScene" uid="uid://h6guih41hxjt" path="res://Utilities/wall.tscn" id="3_y03qi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgnjm"]
+size = Vector2(606, 907)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oh6rj"]
+size = Vector2(221, 902.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugk7i"]
+size = Vector2(629, 129)
+
+[node name="Game" type="Node2D"]
+
+[node name="Emitter" parent="." instance=ExtResource("1_c260g")]
+position = Vector2(415, 267)
+fire_speed = 500
+fire_angle = 2.0
+
+[node name="PlayArea" type="Area2D" parent="."]
+position = Vector2(4, 10)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayArea"]
+position = Vector2(293, 443.5)
+shape = SubResource("RectangleShape2D_hgnjm")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="Mosquito" parent="." instance=ExtResource("2_tgu51")]
+position = Vector2(267, 276)
+
+[node name="Wall" parent="." instance=ExtResource("3_y03qi")]
+
+[node name="CollisionShape2D" parent="Wall" index="0"]
+position = Vector2(-112, 448)
+shape = SubResource("RectangleShape2D_oh6rj")
+
+[node name="Wall2" parent="." instance=ExtResource("3_y03qi")]
+position = Vector2(160, -120)
+
+[node name="CollisionShape2D" parent="Wall2" index="0"]
+position = Vector2(149.5, 55.5)
+shape = SubResource("RectangleShape2D_ugk7i")
+
+[editable path="Mosquito"]
+[editable path="Wall"]
+[editable path="Wall2"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://djgo02dl858r0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1dhv"]
+radius = 20.0
+
+[node name="Hitbox" type="Area2D"]
+collision_mask = 0
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a1dhv")
+debug_color = Color(0.984314, 0, 0.352941, 0.419608)

@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjjwv0le10nw3"]
+
+[ext_resource type="Texture2D" uid="uid://llx3u758s3c2" path="res://Assets/Sprites/mosquito-64.png" id="1_tvrgr"]
+[ext_resource type="Script" path="res://Objects/mosquito.gd" id="1_woefe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pm1b5"]
+radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_asp0t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vpkhk"]
+radius = 192.0
+
+[node name="Mosquito" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 512
+script = ExtResource("1_woefe")
+
+[node name="Mosquito-64" type="Sprite2D" parent="."]
+texture = ExtResource("1_tvrgr")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_pm1b5")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_asp0t")
+
+[node name="BulletAvoider" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletAvoider"]
+shape = SubResource("CircleShape2D_vpkhk")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_entered" from="BulletAvoider" to="." method="_on_bullet_avoider_area_entered"]
+[connection signal="area_exited" from="BulletAvoider" to="." method="_on_bullet_avoider_area_exited"]
