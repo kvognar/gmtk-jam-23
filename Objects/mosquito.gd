@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 var detected_bullets = []
 
-const speed = 500
+const speed = 400
+const acceleration = 40
 
 enum STATES { DEFAULT, EXPLODING, BLINKING }
 var state = STATES.DEFAULT
@@ -17,9 +18,6 @@ func _ready():
 	bullet_pool.mosquito = self
 
 func _process(_delta):
-
-
-	
 	match state:
 		STATES.DEFAULT:
 			#	Debug button to test mosquito death
@@ -30,7 +28,9 @@ func _process(_delta):
 			var new_vector = evasion_vector()
 			if new_vector == Vector2.ZERO:
 				new_vector = (respawn_point - global_position).normalized()
-			velocity = new_vector * 400
+				velocity += new_vector * (acceleration / 2)
+			else:
+				velocity += new_vector * acceleration * 1 / new_vector.length()
 			move_and_slide()
 		STATES.EXPLODING:
 			pass
@@ -38,6 +38,7 @@ func _process(_delta):
 			global_position = lerp(global_position, respawn_point, 0.5)
 	
 func evasion_vector():
+	# Just pick the nearest bullet and move directly away from it
 	var result_vector = Vector2.ZERO
 	if detected_bullets.size() == 0:
 		return result_vector
@@ -51,7 +52,7 @@ func evasion_vector():
 			closest_bullet = bullet
 			closest_distance = distance
 
-	result_vector =  (global_position - closest_bullet.global_position).normalized()
+	result_vector =  (global_position - closest_bullet.global_position)
 	return result_vector
 
 func _on_hurtbox_area_entered(_area):
