@@ -15,6 +15,10 @@ run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+BulletPool="*res://Utilities/bullet_pool.gd"
+
 [display]
 
 window/size/viewport_width=600
@@ -23,6 +27,7 @@ window/size/viewport_height=900
 [layer_names]
 
 2d_physics/layer_1="Bullet Hitboxes"
+2d_physics/layer_2="Mosquito Bullet Hitboxes"
 2d_physics/layer_5="Play Area"
 2d_physics/layer_10="Wall"
 

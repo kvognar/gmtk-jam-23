@@ -1,7 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://djgo02dl858r0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a1dhv"]
-radius = 20.0
 
 [node name="Hitbox" type="Area2D"]
 collision_mask = 0

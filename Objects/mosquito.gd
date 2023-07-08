@@ -2,12 +2,16 @@ extends CharacterBody2D
 
 var detected_bullets = []
 
+const speed = 500
+
 func _process(delta):
 	
 	var new_vector = evasion_vector()
 	if new_vector == Vector2.ZERO:
 		new_vector = (Vector2(200, 200) - global_position).normalized()
-	velocity = new_vector * delta * 10000
+	velocity = new_vector * 400
+
+	
 	move_and_slide()
 	
 func evasion_vector():
@@ -25,10 +29,10 @@ func evasion_vector():
 			closest_distance = distance
 
 	result_vector =  (global_position - closest_bullet.global_position).normalized()
-	print_debug(result_vector)
 	return result_vector
 
 func _on_hurtbox_area_entered(_area):
+	print_debug("ouch!")
 	pass # Replace with function body.
 
 

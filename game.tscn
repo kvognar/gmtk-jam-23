@@ -18,7 +18,7 @@ size = Vector2(629, 129)
 [node name="Emitter" parent="." instance=ExtResource("1_c260g")]
 position = Vector2(415, 267)
 fire_speed = 500
-fire_angle = 2.0
+rotation_speed = 2.0
 
 [node name="PlayArea" type="Area2D" parent="."]
 position = Vector2(4, 10)
@@ -45,6 +45,9 @@ position = Vector2(160, -120)
 [node name="CollisionShape2D" parent="Wall2" index="0"]
 position = Vector2(149.5, 55.5)
 shape = SubResource("RectangleShape2D_ugk7i")
+
+[node name="Bullets" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [editable path="Mosquito"]
 [editable path="Wall"]

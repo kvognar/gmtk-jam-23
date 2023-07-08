@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjjwv0le10nw3"]
+[gd_scene load_steps=8 format=3 uid="uid://bjjwv0le10nw3"]
 
 [ext_resource type="Texture2D" uid="uid://llx3u758s3c2" path="res://Assets/Sprites/mosquito-64.png" id="1_tvrgr"]
 [ext_resource type="Script" path="res://Objects/mosquito.gd" id="1_woefe"]
+[ext_resource type="PackedScene" uid="uid://crssu6c1qrs5e" path="res://Utilities/emitter.tscn" id="3_nd0jg"]
+[ext_resource type="PackedScene" uid="uid://b05kc22a1p0nx" path="res://Objects/mosquito_bullet.tscn" id="4_y10fw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pm1b5"]
 radius = 24.0
@@ -9,7 +11,7 @@ radius = 24.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_asp0t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vpkhk"]
-radius = 192.0
+radius = 128.0
 
 [node name="Mosquito" type="CharacterBody2D"]
 collision_layer = 0
@@ -34,6 +36,12 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BulletAvoider"]
 shape = SubResource("CircleShape2D_vpkhk")
+
+[node name="Emitter" parent="." instance=ExtResource("3_nd0jg")]
+fire_speed = 100
+fire_angle = 4.712
+rotation_speed = 0.0
+bullet_type = ExtResource("4_y10fw")
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_entered" from="BulletAvoider" to="." method="_on_bullet_avoider_area_entered"]
