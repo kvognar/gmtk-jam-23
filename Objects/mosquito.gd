@@ -28,7 +28,6 @@ func _process(_delta):
 		STATES.EXPLODING:
 			pass
 		STATES.BLINKING:
-#			print_debug(position)
 			position = lerp(position, respawn_point, 0.5)
 	
 func evasion_vector():
@@ -60,7 +59,6 @@ func _on_bullet_avoider_area_exited(area):
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Explode":
-		print_debug("respawning")
 		respawn()
 
 func explode():

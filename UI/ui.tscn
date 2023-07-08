@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://73hn5exfdvlc"]
+
+[ext_resource type="PackedScene" uid="uid://blhcb8e2wnusn" path="res://UI/text_box.tscn" id="1_7stbh"]
+[ext_resource type="FontFile" uid="uid://bjk7glv5kqlch" path="res://Assets/Fonts/tinypixel.otf" id="1_ceb6r"]
+[ext_resource type="PackedScene" uid="uid://bi2afaq273fgy" path="res://game.tscn" id="3_xpj52"]
+[ext_resource type="Texture2D" uid="uid://kihp8hi80dgt" path="res://Assets/Sprites/abe_hello.png" id="4_swatf"]
+
+[node name="UI" type="Node2D"]
+position = Vector2(624, 320)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -624.0
+offset_top = -321.0
+offset_right = -320.0
+offset_bottom = 576.0
+color = Color(0.101961, 0, 0.384314, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 302.0
+offset_bottom = 898.0
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="LifeCounterLabel" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("1_7stbh")]
+layout_mode = 2
+
+[node name="LifeCounter" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("1_7stbh")]
+layout_mode = 2
+text = "0
+"
+
+[node name="ScoreLabel" type="RichTextLabel" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("1_ceb6r")
+theme_override_font_sizes/normal_font_size = 28
+text = "Score
+"
+
+[node name="LifeCounterLabel2" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("1_7stbh")]
+layout_mode = 2
+text = "0000"
+
+[node name="Game" parent="." instance=ExtResource("3_xpj52")]
+position = Vector2(-320, -320)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 288.0
+offset_top = -320.0
+offset_right = 976.0
+offset_bottom = 576.0
+color = Color(0.102537, 3.3884e-05, 0.383621, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 496.0
+offset_right = 528.0
+offset_bottom = 672.0
+
+[node name="TextBox" parent="ColorRect2/VBoxContainer" instance=ExtResource("1_7stbh")]
+layout_mode = 2
+text = "Okay, let's see...what does this button do?"
+
+[node name="AbeHello" type="Sprite2D" parent="."]
+position = Vector2(640, -64)
+texture = ExtResource("4_swatf")

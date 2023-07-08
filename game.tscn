@@ -64,7 +64,7 @@ position = Vector2(640, 467.5)
 shape = SubResource("RectangleShape2D_4vmn3")
 
 [node name="Mosquito" parent="." instance=ExtResource("2_tgu51")]
-position = Vector2(392, 680)
+position = Vector2(296, 704)
 
 [connection signal="died" from="Mosquito" to="." method="_on_mosquito_died"]
 
