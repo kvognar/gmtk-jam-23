@@ -4,15 +4,20 @@ var detected_bullets = []
 
 const speed = 500
 
+enum STATES { DEFAULT, EXPLODING }
+var state = STATES.DEFAULT
+
 func _process(_delta):
 	
-	var new_vector = evasion_vector()
-	if new_vector == Vector2.ZERO:
-		new_vector = (Vector2(200, 400) - global_position).normalized()
-	velocity = new_vector * 400
-
-	
-	move_and_slide()
+	match state:
+		STATES.DEFAULT:
+			var new_vector = evasion_vector()
+			if new_vector == Vector2.ZERO:
+				new_vector = (Vector2(200, 400) - global_position).normalized()
+			velocity = new_vector * 400
+			move_and_slide()
+		STATES.EXPLODING:
+			pass
 	
 func evasion_vector():
 	var result_vector = Vector2.ZERO
@@ -32,8 +37,10 @@ func evasion_vector():
 	return result_vector
 
 func _on_hurtbox_area_entered(_area):
-	print_debug("ouch!")
-	pass # Replace with function body.
+	$AnimationPlayer.play("Explode")
+	$Emitter.set_firing(false)
+	state = STATES.EXPLODING
+
 
 
 func _on_bullet_avoider_area_entered(area):
