@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwgvjnpgbopgb"]
+
+[ext_resource type="Script" path="res://Objects/missile_launcher.gd" id="1_rqxeb"]
+[ext_resource type="PackedScene" uid="uid://df8oi5mepridp" path="res://Objects/missile.tscn" id="2_m7tgo"]
+
+[sub_resource type="Gradient" id="Gradient_kevhg"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xbup1"]
+gradient = SubResource("Gradient_kevhg")
+
+[node name="MissileLauncher" type="Node2D"]
+script = ExtResource("1_rqxeb")
+fire_key = 77
+missile_type = ExtResource("2_m7tgo")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -22.0
+offset_top = -18.0
+offset_right = 24.0
+offset_bottom = 22.0
+texture = SubResource("GradientTexture1D_xbup1")
+expand_mode = 1
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

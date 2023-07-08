@@ -37,14 +37,15 @@ radius = 4.0
 height = 24.0
 
 [node name="Missile" type="Area2D"]
-position = Vector2(289, 217)
+position = Vector2(-2, 3)
 script = ExtResource("1_mtrd4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_drr2x")
 autoplay = "default"
 frame_progress = 0.980497
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_h0ne2")

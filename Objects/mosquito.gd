@@ -7,11 +7,14 @@ const speed = 500
 enum STATES { DEFAULT, EXPLODING, BLINKING }
 var state = STATES.DEFAULT
 var respawn_point: Vector2
+var bullet_pool
 
 signal died
 
 func _ready():
 	respawn_point = global_position
+	bullet_pool = get_node("/root/BulletPool")
+	bullet_pool.mosquito = self
 
 func _process(_delta):
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://brabnmhxeq2ip"]
+[gd_scene load_steps=4 format=3 uid="uid://brabnmhxeq2ip"]
 
 [ext_resource type="PackedScene" uid="uid://mn6ne1mpxx7x" path="res://Objects/cannon.tscn" id="1_k8i2r"]
 [ext_resource type="Script" path="res://Objects/big_boss.gd" id="1_rb3xb"]
+[ext_resource type="PackedScene" uid="uid://cwgvjnpgbopgb" path="res://Objects/missile_launcher.tscn" id="3_brqpx"]
 
 [node name="BigBoss" type="Area2D"]
 collision_layer = 0
@@ -25,5 +26,9 @@ position = Vector2(504, 80)
 rotate_left_key = 73
 rotate_right_key = 80
 fire_key = 79
+
+[node name="MissileLauncher" parent="." instance=ExtResource("3_brqpx")]
+position = Vector2(288, 184)
+rotation = 1.5708
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
