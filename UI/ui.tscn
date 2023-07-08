@@ -1,9 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://73hn5exfdvlc"]
+[gd_scene load_steps=12 format=3 uid="uid://73hn5exfdvlc"]
 
 [ext_resource type="PackedScene" uid="uid://blhcb8e2wnusn" path="res://UI/text_box.tscn" id="1_7stbh"]
 [ext_resource type="FontFile" uid="uid://bjk7glv5kqlch" path="res://Assets/Fonts/tinypixel.otf" id="1_ceb6r"]
+[ext_resource type="Script" path="res://UI/life_counter.gd" id="2_lxena"]
 [ext_resource type="PackedScene" uid="uid://bi2afaq273fgy" path="res://game.tscn" id="3_xpj52"]
+[ext_resource type="Script" path="res://UI/mosquito_score_counter.gd" id="4_o5nrq"]
 [ext_resource type="Texture2D" uid="uid://kihp8hi80dgt" path="res://Assets/Sprites/abe_hello.png" id="4_swatf"]
+[ext_resource type="Script" path="res://UI/HealthBar.gd" id="6_8xuuj"]
+
+[sub_resource type="Gradient" id="Gradient_5np5i"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1a6xr"]
+gradient = SubResource("Gradient_5np5i")
+
+[sub_resource type="Gradient" id="Gradient_mi6x0"]
+colors = PackedColorArray(0, 0, 0, 1, 0.996094, 0.851563, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ekmx0"]
+gradient = SubResource("Gradient_mi6x0")
 
 [node name="UI" type="Node2D"]
 position = Vector2(624, 320)
@@ -31,8 +45,8 @@ layout_mode = 2
 
 [node name="LifeCounter" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("1_7stbh")]
 layout_mode = 2
-text = "0
-"
+text = "3"
+script = ExtResource("2_lxena")
 
 [node name="ScoreLabel" type="RichTextLabel" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -42,9 +56,10 @@ theme_override_font_sizes/normal_font_size = 28
 text = "Score
 "
 
-[node name="LifeCounterLabel2" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("1_7stbh")]
+[node name="ScoreCounter" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("1_7stbh")]
 layout_mode = 2
-text = "0000"
+text = "0000000"
+script = ExtResource("4_o5nrq")
 
 [node name="Game" parent="." instance=ExtResource("3_xpj52")]
 position = Vector2(-320, -320)
@@ -66,6 +81,16 @@ offset_bottom = 672.0
 [node name="TextBox" parent="ColorRect2/VBoxContainer" instance=ExtResource("1_7stbh")]
 layout_mode = 2
 text = "Okay, let's see...what does this button do?"
+
+[node name="HealthBar" type="TextureProgressBar" parent="ColorRect2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 10000.0
+value = 10000.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_1a6xr")
+texture_progress = SubResource("GradientTexture1D_ekmx0")
+script = ExtResource("6_8xuuj")
 
 [node name="AbeHello" type="Sprite2D" parent="."]
 position = Vector2(640, -64)

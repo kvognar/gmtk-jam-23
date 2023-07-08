@@ -66,6 +66,7 @@ shape = SubResource("RectangleShape2D_4vmn3")
 [node name="Mosquito" parent="." instance=ExtResource("2_tgu51")]
 position = Vector2(296, 704)
 
+[connection signal="was_hit" from="BigBoss" to="." method="_on_big_boss_was_hit"]
 [connection signal="died" from="Mosquito" to="." method="_on_mosquito_died"]
 
 [editable path="Wall"]

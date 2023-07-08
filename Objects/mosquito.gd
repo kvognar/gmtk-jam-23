@@ -15,11 +15,15 @@ func _ready():
 
 func _process(_delta):
 
-	if Input.is_key_pressed(KEY_SPACE):
-		explode()
+
 	
 	match state:
 		STATES.DEFAULT:
+			#	Debug button to test mosquito death
+			if Input.is_key_pressed(KEY_SPACE):
+				explode()
+				return
+			
 			var new_vector = evasion_vector()
 			if new_vector == Vector2.ZERO:
 				new_vector = (respawn_point - global_position).normalized()
@@ -28,7 +32,7 @@ func _process(_delta):
 		STATES.EXPLODING:
 			pass
 		STATES.BLINKING:
-			position = lerp(position, respawn_point, 0.5)
+			global_position = lerp(global_position, respawn_point, 0.5)
 	
 func evasion_vector():
 	var result_vector = Vector2.ZERO
@@ -71,7 +75,7 @@ func respawn():
 	$EffectsAnimationPlayer.play("blink")
 	$AnimationPlayer.play("default")
 	state = STATES.BLINKING
-	position = respawn_point + Vector2(0, 400)
+	global_position = respawn_point + Vector2(0, 400)
 
 func _on_effects_animation_player_animation_finished(anim_name):
 	if anim_name == "blink":
