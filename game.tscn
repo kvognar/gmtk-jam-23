@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bi2afaq273fgy"]
+[gd_scene load_steps=10 format=3 uid="uid://bi2afaq273fgy"]
 
+[ext_resource type="Script" path="res://game.gd" id="1_hqd4s"]
 [ext_resource type="PackedScene" uid="uid://bjjwv0le10nw3" path="res://Objects/mosquito.tscn" id="2_tgu51"]
 [ext_resource type="PackedScene" uid="uid://brabnmhxeq2ip" path="res://Objects/big_boss.tscn" id="3_tnxwn"]
 [ext_resource type="PackedScene" uid="uid://h6guih41hxjt" path="res://Utilities/wall.tscn" id="3_y03qi"]
@@ -20,6 +21,7 @@ size = Vector2(608, 48)
 size = Vector2(66, 937)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_hqd4s")
 
 [node name="PlayArea" type="Area2D" parent="."]
 position = Vector2(4, 10)
@@ -30,9 +32,6 @@ collision_mask = 0
 position = Vector2(293, 443.5)
 shape = SubResource("RectangleShape2D_hgnjm")
 debug_color = Color(0, 0.6, 0.701961, 0)
-
-[node name="Mosquito" parent="." instance=ExtResource("2_tgu51")]
-position = Vector2(280, 600)
 
 [node name="Wall" parent="." instance=ExtResource("3_y03qi")]
 
@@ -64,7 +63,11 @@ shape = SubResource("RectangleShape2D_xk5a4")
 position = Vector2(640, 467.5)
 shape = SubResource("RectangleShape2D_4vmn3")
 
-[editable path="Mosquito"]
+[node name="Mosquito" parent="." instance=ExtResource("2_tgu51")]
+position = Vector2(392, 680)
+
+[connection signal="died" from="Mosquito" to="." method="_on_mosquito_died"]
+
 [editable path="Wall"]
 [editable path="Wall2"]
 [editable path="Wall3"]
