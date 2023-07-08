@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi2afaq273fgy"]
+[gd_scene load_steps=9 format=3 uid="uid://bi2afaq273fgy"]
 
-[ext_resource type="PackedScene" uid="uid://crssu6c1qrs5e" path="res://Utilities/emitter.tscn" id="1_c260g"]
 [ext_resource type="PackedScene" uid="uid://bjjwv0le10nw3" path="res://Objects/mosquito.tscn" id="2_tgu51"]
+[ext_resource type="PackedScene" uid="uid://brabnmhxeq2ip" path="res://Objects/big_boss.tscn" id="3_tnxwn"]
 [ext_resource type="PackedScene" uid="uid://h6guih41hxjt" path="res://Utilities/wall.tscn" id="3_y03qi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgnjm"]
@@ -13,12 +13,13 @@ size = Vector2(221, 902.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugk7i"]
 size = Vector2(629, 129)
 
-[node name="Game" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xk5a4"]
+size = Vector2(608, 48)
 
-[node name="Emitter" parent="." instance=ExtResource("1_c260g")]
-position = Vector2(415, 267)
-fire_speed = 500
-rotation_speed = 2.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vmn3"]
+size = Vector2(66, 937)
+
+[node name="Game" type="Node2D"]
 
 [node name="PlayArea" type="Area2D" parent="."]
 position = Vector2(4, 10)
@@ -31,7 +32,7 @@ shape = SubResource("RectangleShape2D_hgnjm")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="Mosquito" parent="." instance=ExtResource("2_tgu51")]
-position = Vector2(267, 276)
+position = Vector2(280, 600)
 
 [node name="Wall" parent="." instance=ExtResource("3_y03qi")]
 
@@ -49,6 +50,22 @@ shape = SubResource("RectangleShape2D_ugk7i")
 [node name="Bullets" type="Node2D" parent="."]
 unique_name_in_owner = true
 
+[node name="BigBoss" parent="." instance=ExtResource("3_tnxwn")]
+
+[node name="Wall3" parent="." instance=ExtResource("3_y03qi")]
+
+[node name="CollisionShape2D" parent="Wall3" index="0"]
+position = Vector2(296, 928)
+shape = SubResource("RectangleShape2D_xk5a4")
+
+[node name="Wall4" parent="." instance=ExtResource("3_y03qi")]
+
+[node name="CollisionShape2D" parent="Wall4" index="0"]
+position = Vector2(640, 467.5)
+shape = SubResource("RectangleShape2D_4vmn3")
+
 [editable path="Mosquito"]
 [editable path="Wall"]
 [editable path="Wall2"]
+[editable path="Wall3"]
+[editable path="Wall4"]

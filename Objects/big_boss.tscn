@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://brabnmhxeq2ip"]
+
+[ext_resource type="PackedScene" uid="uid://mn6ne1mpxx7x" path="res://Objects/cannon.tscn" id="1_k8i2r"]
+
+[node name="BigBoss" type="Area2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -10
+offset_right = 600.0
+offset_bottom = 272.0
+color = Color(0.247059, 0, 0.513726, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="Cannon" parent="." instance=ExtResource("1_k8i2r")]
+position = Vector2(80, 80)
+
+[node name="Cannon2" parent="." instance=ExtResource("1_k8i2r")]
+position = Vector2(504, 80)
+rotate_left_key = 73
+rotate_right_key = 80
+fire_key = 79

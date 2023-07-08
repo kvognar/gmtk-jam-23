@@ -38,7 +38,8 @@ collision_layer = 0
 shape = SubResource("CircleShape2D_vpkhk")
 
 [node name="Emitter" parent="." instance=ExtResource("3_nd0jg")]
-fire_speed = 100
+rotation = -1.5708
+fire_speed = 500
 fire_angle = 4.712
 rotation_speed = 0.0
 bullet_type = ExtResource("4_y10fw")

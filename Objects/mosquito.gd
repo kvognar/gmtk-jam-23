@@ -4,11 +4,11 @@ var detected_bullets = []
 
 const speed = 500
 
-func _process(delta):
+func _process(_delta):
 	
 	var new_vector = evasion_vector()
 	if new_vector == Vector2.ZERO:
-		new_vector = (Vector2(200, 200) - global_position).normalized()
+		new_vector = (Vector2(200, 400) - global_position).normalized()
 	velocity = new_vector * 400
 
 	
