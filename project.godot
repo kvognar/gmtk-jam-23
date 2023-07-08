@@ -19,11 +19,25 @@ config/icon="res://icon.svg"
 
 BulletPool="*res://Utilities/bullet_pool.gd"
 ScoreKeeper="*res://Utilities/score_keeper.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+Dialog="*res://dialog/dialog.gd"
+
+[dialogue_manager]
+
+general/states=["Dialog"]
 
 [display]
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://dialog/intro.dialogue")
 
 [layer_names]
 
