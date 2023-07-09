@@ -159,17 +159,6 @@ func get_responses() -> Array:
 	return items
 
 
-func handle_resize() -> void:
-	if not is_instance_valid(margin):
-		call_deferred("handle_resize")
-		return
-	
-	balloon.custom_minimum_size.y = margin.size.y
-	balloon.size.y = 0
-	var viewport_size = balloon.get_viewport_rect().size
-	balloon.global_position = Vector2((viewport_size.x - balloon.size.x) * 0.5, viewport_size.y - balloon.size.y)
-
-
 ### Signals
 
 
@@ -204,11 +193,6 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 		next(dialogue_line.next_id)
 	elif event.is_action_pressed("ui_accept") and get_viewport().gui_get_focus_owner() == balloon:
 		next(dialogue_line.next_id)
-
-
-func _on_margin_resized() -> void:
-	handle_resize()
-
 
 func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
 	if not letter in [" ", "."]:

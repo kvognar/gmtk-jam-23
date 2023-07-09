@@ -1,0 +1,22 @@
+~ this_is_a_node_title
+
+Nathan: [[Hi|Hello|Howdy]], this is some dialogue.[next=0.5]
+Nathan: For more information see the online documentation.[next=0.5]
+
+=> END
+
+~ start
+
+Intern_salut: this is start.[next=0.5]
+Intern: and then another dialog.[next=0.5]
+Intern_frazzled: OMG IT WORKS??? HOW.[next=0.5]
+Intern_sheepish: I don't know because I am not very good at this.[next=0.5]
+
+=> END
+
+~ hit
+
+Intern_frazzled: aaah we got hit.[next=0.5]
+Intern_frazzled: aaah try hitting buttons.[next=0.5]
+
+=> END

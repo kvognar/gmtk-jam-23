@@ -4,11 +4,11 @@
 [ext_resource type="FontFile" uid="uid://bjk7glv5kqlch" path="res://Assets/Fonts/tinypixel.otf" id="1_ceb6r"]
 [ext_resource type="Script" path="res://UI/ui.gd" id="1_r0u2x"]
 [ext_resource type="Script" path="res://UI/life_counter.gd" id="2_lxena"]
+[ext_resource type="Resource" uid="uid://dgpfrmfey0gc3" path="res://dialog/game.dialogue" id="2_uhhjt"]
 [ext_resource type="PackedScene" uid="uid://bi2afaq273fgy" path="res://game.tscn" id="3_xpj52"]
 [ext_resource type="Script" path="res://UI/mosquito_score_counter.gd" id="4_o5nrq"]
 [ext_resource type="Script" path="res://UI/HealthBar.gd" id="6_8xuuj"]
 [ext_resource type="PackedScene" uid="uid://yus1loxriev2" path="res://Utilities/portraits_balloon/balloon.tscn" id="6_urm4u"]
-[ext_resource type="Resource" uid="uid://bmil2r4a27ho3" path="res://dialog/intro.dialogue" id="7_wfscl"]
 
 [sub_resource type="Gradient" id="Gradient_5np5i"]
 
@@ -24,7 +24,7 @@ gradient = SubResource("Gradient_mi6x0")
 [node name="UI" type="Node2D"]
 position = Vector2(624, 320)
 script = ExtResource("1_r0u2x")
-dialogue_resource = ExtResource("7_wfscl")
+dialogue_resource = ExtResource("2_uhhjt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -624.0

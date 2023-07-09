@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b56e633wt8fj2"
-path="res://.godot/imported/Intern_sheepish.png-7270305b023f7dbf93c5a1a97afae1da.ctex"
+uid="uid://dtdlq5d1pbo4"
+path="res://.godot/imported/Intern2.png-0eab5c6d3334a475d08fd4e114d9e74f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Portraits/Intern/Intern_sheepish.png"
-dest_files=["res://.godot/imported/Intern_sheepish.png-7270305b023f7dbf93c5a1a97afae1da.ctex"]
+source_file="res://Assets/Portraits/Intern/Intern2.png"
+dest_files=["res://.godot/imported/Intern2.png-0eab5c6d3334a475d08fd4e114d9e74f.ctex"]
 
 [params]
 
