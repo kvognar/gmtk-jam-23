@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bi2afaq273fgy"]
+[gd_scene load_steps=12 format=3 uid="uid://bi2afaq273fgy"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_hqd4s"]
 [ext_resource type="PackedScene" uid="uid://bjjwv0le10nw3" path="res://Objects/mosquito.tscn" id="2_tgu51"]
 [ext_resource type="PackedScene" uid="uid://brabnmhxeq2ip" path="res://Objects/big_boss.tscn" id="3_tnxwn"]
 [ext_resource type="PackedScene" uid="uid://h6guih41hxjt" path="res://Utilities/wall.tscn" id="3_y03qi"]
 [ext_resource type="PackedScene" uid="uid://cmngnljbiagyc" path="res://Objects/star_field.tscn" id="5_dv11a"]
+[ext_resource type="AudioStream" uid="uid://cxyncmcyknvks" path="res://Assets/BGM/Abstraction - Three Red Hearts - Pixel War 1.wav" id="6_mlupp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgnjm"]
 size = Vector2(606, 907)
@@ -68,6 +69,11 @@ shape = SubResource("RectangleShape2D_4vmn3")
 position = Vector2(296, 704)
 
 [node name="StarField" parent="." instance=ExtResource("5_dv11a")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_mlupp")
+volume_db = -5.0
+autoplay = true
 
 [connection signal="was_hit" from="BigBoss" to="." method="_on_big_boss_was_hit"]
 [connection signal="died" from="Mosquito" to="." method="_on_mosquito_died"]

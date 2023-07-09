@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://g0fabhba2287"]
+[gd_scene load_steps=18 format=3 uid="uid://g0fabhba2287"]
 
 [ext_resource type="Script" path="res://Objects/mosquito.gd" id="1_m00h5"]
 [ext_resource type="Texture2D" uid="uid://dhpb1nai16qgj" path="res://Assets/Sprites/Mosquito-16.png" id="2_bkdfm"]
 [ext_resource type="PackedScene" uid="uid://crssu6c1qrs5e" path="res://Utilities/emitter.tscn" id="3_8h2i6"]
 [ext_resource type="PackedScene" uid="uid://b05kc22a1p0nx" path="res://Objects/mosquito_bullet.tscn" id="4_6vwlw"]
 [ext_resource type="Texture2D" uid="uid://d0applnm0ng6j" path="res://Assets/Sprites/Effects/Explosion.png" id="5_5q3tm"]
+[ext_resource type="AudioStream" uid="uid://cak5ajmu6wwk0" path="res://Assets/SFX/mosquito_shot_hit-1.wav" id="5_acxks"]
 [ext_resource type="Texture2D" uid="uid://dkhfi13ym38wi" path="res://Assets/Sprites/mosquito-32.png" id="6_2in5a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pm1b5"]
@@ -279,6 +280,9 @@ fire_angle = 4.712
 rotation_speed = 0.0
 bullet_type = ExtResource("4_6vwlw")
 
+[node name="AudioStreamPlayer2D" parent="Emitter" index="2"]
+stream = ExtResource("5_acxks")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "default"
 libraries = {
@@ -290,8 +294,12 @@ libraries = {
 "": SubResource("AnimationLibrary_ofi8b")
 }
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered" flags=18]
 [connection signal="area_entered" from="BulletAvoider" to="." method="_on_bullet_avoider_area_entered" flags=18]
 [connection signal="area_exited" from="BulletAvoider" to="." method="_on_bullet_avoider_area_exited" flags=18]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished" flags=18]
 [connection signal="animation_finished" from="EffectsAnimationPlayer" to="." method="_on_effects_animation_player_animation_finished" flags=18]
+
+[editable path="Emitter"]

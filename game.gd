@@ -20,6 +20,7 @@ func _on_mosquito_died():
 		
 	if score_keeper.lives < 1:
 		game_over.emit()
+		$AudioStreamPlayer2D.stream_paused = true
 
 		
 
@@ -28,6 +29,7 @@ func _on_big_boss_was_hit():
 	score_keeper.update_boss_health(-1)
 
 func continue_game():
+	$AudioStreamPlayer2D.stream_paused = false
 	score_keeper.update_lives(score_keeper.MAX_LIVES)
 	var respawn_point = mosquito.respawn_point
 	var next_mosquito_type = mosquito_types.pop_front()

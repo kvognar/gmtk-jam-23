@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjjwv0le10nw3"]
+[gd_scene load_steps=17 format=3 uid="uid://bjjwv0le10nw3"]
 
 [ext_resource type="Texture2D" uid="uid://llx3u758s3c2" path="res://Assets/Sprites/mosquito-64.png" id="1_tvrgr"]
 [ext_resource type="Script" path="res://Objects/mosquito.gd" id="1_woefe"]
 [ext_resource type="PackedScene" uid="uid://crssu6c1qrs5e" path="res://Utilities/emitter.tscn" id="3_nd0jg"]
 [ext_resource type="PackedScene" uid="uid://b05kc22a1p0nx" path="res://Objects/mosquito_bullet.tscn" id="4_y10fw"]
 [ext_resource type="Texture2D" uid="uid://d0applnm0ng6j" path="res://Assets/Sprites/Effects/Explosion.png" id="5_j08pk"]
+[ext_resource type="AudioStream" uid="uid://cak5ajmu6wwk0" path="res://Assets/SFX/mosquito_shot_hit-1.wav" id="5_js8el"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pm1b5"]
 radius = 24.0
@@ -277,6 +278,10 @@ fire_angle = 4.712
 rotation_speed = 0.0
 bullet_type = ExtResource("4_y10fw")
 
+[node name="AudioStreamPlayer2D" parent="Emitter" index="2"]
+stream = ExtResource("5_js8el")
+volume_db = -15.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "default"
 libraries = {
@@ -288,8 +293,12 @@ libraries = {
 "": SubResource("AnimationLibrary_ofi8b")
 }
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_entered" from="BulletAvoider" to="." method="_on_bullet_avoider_area_entered"]
 [connection signal="area_exited" from="BulletAvoider" to="." method="_on_bullet_avoider_area_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="EffectsAnimationPlayer" to="." method="_on_effects_animation_player_animation_finished"]
+
+[editable path="Emitter"]

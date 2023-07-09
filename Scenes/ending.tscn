@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://j62chas38fwq"]
+[gd_scene load_steps=5 format=3 uid="uid://j62chas38fwq"]
 
 [ext_resource type="Script" path="res://Scenes/ending.gd" id="1_uevuq"]
 [ext_resource type="PackedScene" uid="uid://yus1loxriev2" path="res://Utilities/portraits_balloon/balloon.tscn" id="2_led2j"]
 [ext_resource type="Resource" uid="uid://qtke3xemoah8" path="res://dialog/endings.dialogue" id="3_ssqh5"]
+[ext_resource type="AudioStream" uid="uid://ceylabc32ttfq" path="res://Assets/BGM/Abstraction - Three Red Hearts - Connected.wav" id="4_c4f8h"]
 
 [node name="ending" type="Node2D"]
 script = ExtResource("1_uevuq")
 Balloon = ExtResource("2_led2j")
 dialogue_resource = ExtResource("3_ssqh5")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_c4f8h")
+autoplay = true

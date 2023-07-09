@@ -10,6 +10,10 @@ var state = STATES.DEFAULT
 var respawn_point: Vector2
 var bullet_pool
 
+@onready var explode_sound = load("res://Assets/SFX/explode-6.wav")
+@onready var shoot_sound = load("res://Assets/SFX/mosquito_shot_hit-1.wav")
+@onready var respawn_sound = load("res://Assets/SFX/respawn_win-7.wav")
+
 signal died
 
 func _ready():
@@ -76,10 +80,14 @@ func explode():
 	$AnimationPlayer.play("Explode")
 	$Emitter.set_firing(false)
 	state = STATES.EXPLODING
+	$AudioStreamPlayer2D.stream = explode_sound
+	$AudioStreamPlayer2D.play()
 
 func respawn():
 	$EffectsAnimationPlayer.play("blink")
 	$AnimationPlayer.play("default")
+	$AudioStreamPlayer2D.stream = respawn_sound
+	$AudioStreamPlayer2D.play()
 	state = STATES.BLINKING
 	global_position = respawn_point + Vector2(0, 400)
 
