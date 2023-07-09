@@ -31,7 +31,8 @@ var is_waiting_for_input: bool = false
 var dialogue_line: DialogueLine:
 	set(next_dialogue_line):
 		if not next_dialogue_line:
-			queue_free()
+			response_template.hide()
+			balloon.hide()
 			return
 		
 		is_waiting_for_input = false
