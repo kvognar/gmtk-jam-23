@@ -79,6 +79,7 @@ layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_fou3i")
 theme_override_font_sizes/normal_font_size = 28
 text = "Dialogue"
+seconds_per_step = 0.04
 
 [node name="Responses" type="VBoxContainer" parent="Balloon/Margin/VBox/VBox"]
 layout_mode = 2
