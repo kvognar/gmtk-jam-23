@@ -64,15 +64,18 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_rb3xb")
 
-[node name="MissileLauncher" parent="." instance=ExtResource("3_brqpx")]
-position = Vector2(288, 184)
-rotation = 1.5708
-
 [node name="Sprites" type="Node2D" parent="."]
 
 [node name="WingBottomLeft" type="Sprite2D" parent="Sprites"]
 position = Vector2(141.5, 162.5)
 texture = ExtResource("3_dkpj8")
+
+[node name="MissileLauncher" parent="Sprites/WingBottomLeft" instance=ExtResource("3_brqpx")]
+position = Vector2(34.5, -0.5)
+rotation = 1.5708
+fire_key = 90
+open_key = 67
+load_key = 88
 
 [node name="WingTopLeft" type="Sprite2D" parent="Sprites"]
 position = Vector2(141.5, 82.5)
@@ -84,6 +87,12 @@ position = Vector2(-40.5, 2.5)
 [node name="WingBottomRight" type="Sprite2D" parent="Sprites"]
 position = Vector2(447.5, 161.5)
 texture = ExtResource("6_xfllh")
+
+[node name="MissileLauncher" parent="Sprites/WingBottomRight" instance=ExtResource("3_brqpx")]
+position = Vector2(-40.5, -0.5)
+rotation = 1.5708
+open_key = 66
+load_key = 78
 
 [node name="WingTopRight" type="Sprite2D" parent="Sprites"]
 position = Vector2(445.5, 81.5)

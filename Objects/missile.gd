@@ -8,6 +8,7 @@ var target_node: Node2D
 var target_position
 
 func _physics_process(delta):
+	# This breaks if the ship has been deleted :thinking_face:
 	if target_node:
 		target_position = target_node.global_position
 	else:

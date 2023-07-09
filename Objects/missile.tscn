@@ -1,31 +1,31 @@
 [gd_scene load_steps=8 format=3 uid="uid://df8oi5mepridp"]
 
-[ext_resource type="Texture2D" uid="uid://du5bmpk7eyhgm" path="res://Assets/Sprites/Weapons/missile-02.png" id="1_6m443"]
 [ext_resource type="Script" path="res://Objects/missile.gd" id="1_mtrd4"]
+[ext_resource type="Texture2D" uid="uid://bvgheuj84hck" path="res://Assets/Sprites/Weapons/missile-03.png" id="2_sdpq4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mscme"]
-atlas = ExtResource("1_6m443")
-region = Rect2(0, 0, 14, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_uiv6a"]
+atlas = ExtResource("2_sdpq4")
+region = Rect2(0, 0, 12, 34)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_frbrn"]
-atlas = ExtResource("1_6m443")
-region = Rect2(14, 0, 14, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4cd3"]
+atlas = ExtResource("2_sdpq4")
+region = Rect2(12, 0, 12, 34)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u41ec"]
-atlas = ExtResource("1_6m443")
-region = Rect2(28, 0, 14, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbocu"]
+atlas = ExtResource("2_sdpq4")
+region = Rect2(24, 0, 12, 34)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_drr2x"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mscme")
+"texture": SubResource("AtlasTexture_uiv6a")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_frbrn")
+"texture": SubResource("AtlasTexture_r4cd3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u41ec")
+"texture": SubResource("AtlasTexture_xbocu")
 }],
 "loop": true,
 "name": &"default",
@@ -37,6 +37,7 @@ radius = 4.0
 height = 24.0
 
 [node name="Missile" type="Area2D"]
+z_index = 10
 position = Vector2(-2, 3)
 script = ExtResource("1_mtrd4")
 
@@ -44,7 +45,7 @@ script = ExtResource("1_mtrd4")
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_drr2x")
 autoplay = "default"
-frame_progress = 0.980497
+frame_progress = 0.359596
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

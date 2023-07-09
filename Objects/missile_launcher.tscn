@@ -1,26 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwgvjnpgbopgb"]
+[gd_scene load_steps=7 format=3 uid="uid://cwgvjnpgbopgb"]
 
 [ext_resource type="Script" path="res://Objects/missile_launcher.gd" id="1_rqxeb"]
 [ext_resource type="PackedScene" uid="uid://df8oi5mepridp" path="res://Objects/missile.tscn" id="2_m7tgo"]
+[ext_resource type="Texture2D" uid="uid://c526ynrv5w7ay" path="res://Assets/Sprites/Weapons/weapon-missilebay_closed.png" id="3_aoftj"]
+[ext_resource type="Texture2D" uid="uid://cr4mp47dhmpyk" path="res://Assets/Sprites/Weapons/weapon-missilebay_ready.png" id="4_4r6n3"]
+[ext_resource type="Texture2D" uid="uid://b34ii38c4sqxs" path="res://Assets/Sprites/Weapons/weapon-missilebay_open.png" id="5_a4ank"]
 
-[sub_resource type="Gradient" id="Gradient_kevhg"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_xbup1"]
-gradient = SubResource("Gradient_kevhg")
+[sub_resource type="SpriteFrames" id="SpriteFrames_dxlao"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_aoftj")
+}],
+"loop": false,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_4r6n3")
+}],
+"loop": false,
+"name": &"loaded",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_a4ank")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
 
 [node name="MissileLauncher" type="Node2D"]
 script = ExtResource("1_rqxeb")
 fire_key = 77
 missile_type = ExtResource("2_m7tgo")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -22.0
-offset_top = -18.0
-offset_right = 24.0
-offset_bottom = 22.0
-texture = SubResource("GradientTexture1D_xbup1")
-expand_mode = 1
-
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_dxlao")
+animation = &"closed"
+autoplay = "closed"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
