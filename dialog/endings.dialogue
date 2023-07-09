@@ -1,0 +1,31 @@
+~ end_1
+
+Supervisor_8: WHAT DID YOU DO?![next=0.5]
+Intern_eager: Ma’am! I have successfully defended the perimeter, Ma’am![next=0.5]
+Supervisor_9: What are you talking about?! Let me see the viewscreen recording![next=0.5]
+(...)[next=1]
+Supervisor_5: There… was a hero’s ship? Incoming toward the Hive Planet? And YOU destroyed it?![next=0.5]
+Intern_salut: I did my best, Ma’am! I hope I was able to be of service to Her Majesty the Queen, Ma’am![next=0.5]
+Supervisor_10: ...[next=0.5]
+Supervisor_7: Well. Your strategy wasn’t elegant. And it certainly wasn’t efficient. But I can’t deny that you protected the Hive Planet and our Queen.[next=0.5]
+Supervisor_3: Good work, Intern. If you performed this well even without training, maybe you were the right fit for this department after all.[next=0.5]
+Intern_eager: Ma’am, yes, ma’am![next=0.5]
+
+=> END
+
+~ end_2
+
+Supervisor_8: WHAT DID YOU DO?![next=0.5]
+Intern_eager: Ma’am! I have successfully defended the perimeter, Ma’am![next=0.5]
+Supervisor_9: What are you talking about?! Let me see the viewscreen recording![next=0.5]
+(...)[next=1]
+Supervisor_5: You… you… you….[next=0.5]
+Intern_salut: …have protected the plans of our most beloved Queen herself? I know, Ma’am! Not to worry, just doing my—[next=0.5]
+Supervisor_2: YOU IDIOT![next=0.5]
+Supervisor_2: THAT WAS A PIZZA DELIVERY PLANE![next=0.5]
+Supervisor_2: AND YOU USED UP ALL OF OUR AMMUNITION DESTROYING IT![next=0.5]
+Intern_frazzled: …what?[next=0.5]
+Supervisor_2: NOW WE’LL HAVE NOTHING LEFT TO DEFEND OURSELVES IF A HERO SHOWS UP![next=0.5]
+Supervisor_2: YOU’RE FIRED![next=0.5]
+
+=> END
