@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://sdwga82uoh0b"]
+
+[ext_resource type="Texture2D" uid="uid://dnkfq4rf3irb7" path="res://Assets/Portraits/Intern/Intern_frazzled.png" id="1_gghia"]
+[ext_resource type="Script" path="res://UI/title_screen.gd" id="1_wqpoj"]
+[ext_resource type="PackedScene" uid="uid://cmngnljbiagyc" path="res://Objects/star_field.tscn" id="2_d3p8g"]
+[ext_resource type="PackedScene" uid="uid://blhcb8e2wnusn" path="res://UI/text_box.tscn" id="3_jhw5y"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wqpoj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1128, 446)
+scale = Vector2(3.14667, 3.14667)
+texture = ExtResource("1_gghia")
+
+[node name="StarField" parent="." instance=ExtResource("2_d3p8g")]
+scale = Vector2(3, 3)
+
+[node name="TextBox" parent="." instance=ExtResource("3_jhw5y")]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 94.0
+offset_right = 908.0
+offset_bottom = 753.0
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center]My First Day as an Intern on the Queen's Dreadnought and I Already Have to Fight a Hero?!	[/center]"
+
+[node name="TextBox2" parent="." instance=ExtResource("3_jhw5y")]
+layout_mode = 0
+offset_left = 287.0
+offset_top = 706.0
+offset_right = 624.0
+offset_bottom = 788.0
+text = "Press Q + P to begin"

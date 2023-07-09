@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0euhbk0m2cf5"]
+
+[ext_resource type="Script" path="res://game_root.gd" id="1_rrgif"]
+[ext_resource type="PackedScene" uid="uid://sdwga82uoh0b" path="res://UI/title_screen.tscn" id="2_lh15u"]
+
+[sub_resource type="Animation" id="Animation_6dvdt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pcijb"]
+resource_name = "Fade Out"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rdro0"]
+resource_name = "Fade In"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8dc3i"]
+_data = {
+"Fade In": SubResource("Animation_rdro0"),
+"Fade Out": SubResource("Animation_pcijb"),
+"RESET": SubResource("Animation_6dvdt")
+}
+
+[node name="GameRoot" type="Node2D"]
+script = ExtResource("1_rrgif")
+
+[node name="SceneContainer" type="Node2D" parent="."]
+
+[node name="TitleScreen" parent="SceneContainer" instance=ExtResource("2_lh15u")]
+
+[node name="Curtain" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1605.0
+offset_bottom = 906.0
+color = Color(0.0745098, 0.00784314, 0.0823529, 1)
+
+[node name="CurtainAnimationPlayer" type="AnimationPlayer" parent="Curtain"]
+libraries = {
+"": SubResource("AnimationLibrary_8dc3i")
+}
+
+[connection signal="change_to_scene" from="SceneContainer/TitleScreen" to="." method="_change_to_scene"]
+[connection signal="animation_finished" from="Curtain/CurtainAnimationPlayer" to="." method="_on_curtain_animation_player_animation_finished"]

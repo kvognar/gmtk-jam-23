@@ -4,6 +4,8 @@ extends Node2D
 @export var title: String = "start"
 @export var dialogue_resource: DialogueResource
 
+signal change_to_scene(new_scene: PackedScene)
+
 func _ready():
 	await get_tree().create_timer(0.4).timeout
 	show_dialogue(title)
@@ -18,4 +20,4 @@ func show_dialogue(key: String) -> void:
 	balloon.dialog_ended.connect(_on_dialog_end)
 
 func _on_dialog_end() -> void:
-	get_tree().change_scene_to_file("res://UI/ui.tscn")
+	change_to_scene.emit(load("res://UI/ui.tscn"))
