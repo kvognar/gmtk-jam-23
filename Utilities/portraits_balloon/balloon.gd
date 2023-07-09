@@ -6,7 +6,7 @@ const DIALOGUE_PITCHES = {
 	Coco = 1
 }
 
-
+signal dialog_ended
 @export var response_template: Node
 @export var file_suffix: String = ""
 
@@ -92,6 +92,7 @@ func _ready() -> void:
 	balloon.hide()
 	
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
+	Engine.get_singleton("DialogueManager").dialogue_ended.connect(_on_end)
 
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -114,11 +115,12 @@ func next(next_id: String) -> void:
 
 ### Signals
 
+func _on_end(_resource: DialogueResource) -> void:
+	emit_signal("dialog_ended")
 
 func _on_mutated(_mutation: Dictionary) -> void:
 	is_waiting_for_input = false
 	balloon.hide()
-
 
 func _on_response_mouse_entered(item: Control) -> void:
 	if "Disallowed" in item.name: return
