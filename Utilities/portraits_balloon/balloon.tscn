@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://yus1loxriev2"]
+[gd_scene load_steps=7 format=3 uid="uid://yus1loxriev2"]
 
 [ext_resource type="Script" path="res://Utilities/portraits_balloon/balloon.gd" id="1_urs4e"]
+[ext_resource type="FontFile" uid="uid://bjk7glv5kqlch" path="res://Assets/Fonts/tinypixel.otf" id="2_fou3i"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="4_m3ccg"]
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_4nt5j"]
@@ -64,9 +65,10 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
 [node name="CharacterLabel" type="RichTextLabel" parent="Balloon/Margin/VBox/VBox"]
-modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
 mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("2_fou3i")
+theme_override_font_sizes/normal_font_size = 49
 bbcode_enabled = true
 text = "Character"
 fit_content = true
@@ -74,6 +76,8 @@ scroll_active = false
 
 [node name="DialogueLabel" parent="Balloon/Margin/VBox/VBox" instance=ExtResource("4_m3ccg")]
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_fou3i")
+theme_override_font_sizes/normal_font_size = 28
 text = "Dialogue"
 
 [node name="Responses" type="VBoxContainer" parent="Balloon/Margin/VBox/VBox"]

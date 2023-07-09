@@ -46,7 +46,8 @@ var dialogue_line: DialogueLine:
 		
 		character_label.visible = not dialogue_line.character.is_empty()
 		character_label.text = tr(dialogue_line.character, "dialogue").split("_")[0]
-		character_portrait.texture = load("res://Assets/Portraits/%s/%s.png" % [character_label.text, dialogue_line.character])
+		if dialogue_line.character:
+			character_portrait.texture = load("res://Assets/Portraits/%s/%s.png" % [character_label.text, dialogue_line.character])
 		
 		dialogue_label.modulate.a = 0
 		dialogue_label.custom_minimum_size.x = dialogue_label.get_parent().size.x - 1

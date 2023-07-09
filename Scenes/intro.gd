@@ -14,8 +14,7 @@ func _ready():
 func show_dialogue(key: String) -> void:
 	assert(dialogue_resource != null, "\"dialogue_resource\" property needs a to point to a DialogueResource.")
 	
-	var balloon: Node = Balloon.instantiate()
-	add_child(balloon)
+	var balloon: Node = $Balloon
 	balloon.start(dialogue_resource, key)
 	balloon.dialog_ended.connect(_on_dialog_end)
 
