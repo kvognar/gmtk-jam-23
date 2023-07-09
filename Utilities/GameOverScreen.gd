@@ -19,6 +19,8 @@ func begin():
 	$InsertQuarterTimer.start()
 	$ContinuePrice.text = "Insert 50 Cents"
 	price_remaining = 50
+	time_remaining = 10
+	set_game_over_timer()
 	$AnimationPlayer.play("RESET")
 	show()
 	

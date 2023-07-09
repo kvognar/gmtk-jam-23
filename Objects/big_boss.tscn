@@ -118,7 +118,7 @@ texture = ExtResource("5_dae2v")
 
 [node name="Stinger" type="Sprite2D" parent="Sprites"]
 z_index = -1
-position = Vector2(293.5, 308.5)
+position = Vector2(297, 348)
 texture = ExtResource("11_dms2j")
 
 [node name="Thorax" type="Sprite2D" parent="Sprites"]

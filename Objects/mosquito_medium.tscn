@@ -282,6 +282,7 @@ bullet_type = ExtResource("4_6vwlw")
 
 [node name="AudioStreamPlayer2D" parent="Emitter" index="2"]
 stream = ExtResource("5_acxks")
+volume_db = -15.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "default"
