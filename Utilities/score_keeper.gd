@@ -1,6 +1,7 @@
 extends Node
 
-var lives = 3
+const MAX_LIVES = 3
+var lives = MAX_LIVES
 var current_phase = 1
 var score = 0
 
