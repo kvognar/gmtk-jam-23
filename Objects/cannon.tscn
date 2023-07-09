@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Objects/cannon.gd" id="1_8xy42"]
 [ext_resource type="PackedScene" uid="uid://crssu6c1qrs5e" path="res://Utilities/emitter.tscn" id="2_82r3a"]
 [ext_resource type="PackedScene" uid="uid://dpdd2sq6bmici" path="res://Objects/bullet.tscn" id="3_e08ch"]
-[ext_resource type="Texture2D" uid="uid://dgxohq6s8quwu" path="res://Assets/Sprites/Weapons/cannon.png" id="4_kiwpi"]
+[ext_resource type="Texture2D" uid="uid://dk12f615xds75" path="res://Assets/Sprites/Weapons/weapon_gun.png" id="4_e5eah"]
 
 [node name="Cannon" type="Node2D"]
 script = ExtResource("1_8xy42")
@@ -17,4 +17,4 @@ bullet_type = ExtResource("3_e08ch")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
-texture = ExtResource("4_kiwpi")
+texture = ExtResource("4_e5eah")

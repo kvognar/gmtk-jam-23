@@ -28,7 +28,7 @@ func _process(_delta):
 			var new_vector = evasion_vector()
 			if new_vector == Vector2.ZERO:
 				new_vector = (respawn_point - global_position).normalized()
-				velocity += new_vector * (acceleration / 2)
+				velocity += new_vector * (acceleration / 2.0)
 			else:
 				velocity += new_vector * acceleration * 1 / new_vector.length()
 			move_and_slide()

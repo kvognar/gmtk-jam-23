@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bi2afaq273fgy"]
+[gd_scene load_steps=11 format=3 uid="uid://bi2afaq273fgy"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_hqd4s"]
 [ext_resource type="PackedScene" uid="uid://bjjwv0le10nw3" path="res://Objects/mosquito.tscn" id="2_tgu51"]
 [ext_resource type="PackedScene" uid="uid://brabnmhxeq2ip" path="res://Objects/big_boss.tscn" id="3_tnxwn"]
 [ext_resource type="PackedScene" uid="uid://h6guih41hxjt" path="res://Utilities/wall.tscn" id="3_y03qi"]
+[ext_resource type="PackedScene" uid="uid://bh56h6cdn20i7" path="res://Objects/mosquito_small.tscn" id="5_15fye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgnjm"]
 size = Vector2(606, 907)
@@ -65,6 +66,9 @@ shape = SubResource("RectangleShape2D_4vmn3")
 
 [node name="Mosquito" parent="." instance=ExtResource("2_tgu51")]
 position = Vector2(296, 704)
+
+[node name="MosquitoSmall" parent="." instance=ExtResource("5_15fye")]
+position = Vector2(112, 704)
 
 [connection signal="was_hit" from="BigBoss" to="." method="_on_big_boss_was_hit"]
 [connection signal="died" from="Mosquito" to="." method="_on_mosquito_died"]

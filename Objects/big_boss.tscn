@@ -1,34 +1,149 @@
-[gd_scene load_steps=4 format=3 uid="uid://brabnmhxeq2ip"]
+[gd_scene load_steps=20 format=3 uid="uid://brabnmhxeq2ip"]
 
 [ext_resource type="PackedScene" uid="uid://mn6ne1mpxx7x" path="res://Objects/cannon.tscn" id="1_k8i2r"]
 [ext_resource type="Script" path="res://Objects/big_boss.gd" id="1_rb3xb"]
 [ext_resource type="PackedScene" uid="uid://cwgvjnpgbopgb" path="res://Objects/missile_launcher.tscn" id="3_brqpx"]
+[ext_resource type="Texture2D" uid="uid://dirxseumsctg" path="res://Assets/Sprites/BossShip/the_hive_wing-bottom-l.png" id="3_dkpj8"]
+[ext_resource type="Texture2D" uid="uid://bb2bfuww1cfer" path="res://Assets/Sprites/BossShip/the_hive_midsection.png" id="4_5geme"]
+[ext_resource type="Texture2D" uid="uid://dpk5u1w72bmpg" path="res://Assets/Sprites/BossShip/the_hive_wing-top-l.png" id="4_ojgjv"]
+[ext_resource type="Texture2D" uid="uid://dq8xjv5l25eyn" path="res://Assets/Sprites/BossShip/the_hive_head.png" id="5_dae2v"]
+[ext_resource type="Texture2D" uid="uid://bm05hsyuu0wfr" path="res://Assets/Sprites/BossShip/the_hive_wing-bottom-r.png" id="6_xfllh"]
+[ext_resource type="Texture2D" uid="uid://cc5evmee2i34x" path="res://Assets/Sprites/BossShip/the_hive_wing-top-r.png" id="7_l52yf"]
+[ext_resource type="Texture2D" uid="uid://dfrj86k3ub5wj" path="res://Assets/Sprites/BossShip/the_hive_midconnector.png" id="9_juvl2"]
+[ext_resource type="Texture2D" uid="uid://b8ds53ib3kca6" path="res://Assets/Sprites/BossShip/the_hive_laser-stinger.png" id="11_dms2j"]
+[ext_resource type="Texture2D" uid="uid://cqk33i2nljmvu" path="res://Assets/Sprites/BossShip/the_hive_thorax-transparent.png" id="12_fdo8e"]
+[ext_resource type="Texture2D" uid="uid://b1bbfihffvxcg" path="res://Assets/Sprites/BossShip/the_hive_thorax-mask.png" id="13_a8wy3"]
+[ext_resource type="Texture2D" uid="uid://dms6egvpwqs2u" path="res://Assets/Sprites/BossShip/the_hive_full.png" id="14_wc1sf"]
+
+[sub_resource type="Gradient" id="Gradient_15nw3"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3qx1k"]
+gradient = SubResource("Gradient_15nw3")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Animation" id="Animation_s3rwt"]
+resource_name = "Laser Charge"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Thorax/ThoraxMask/TextureRect:texture:fill_to")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0), Vector2(0.5, 0.9)]
+}
+
+[sub_resource type="Animation" id="Animation_hagq0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Thorax/ThoraxMask/TextureRect:texture:fill_to")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gq7n4"]
+_data = {
+"Laser Charge": SubResource("Animation_s3rwt"),
+"RESET": SubResource("Animation_hagq0")
+}
 
 [node name="BigBoss" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_rb3xb")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = -10
-offset_right = 600.0
-offset_bottom = 272.0
-color = Color(0.247059, 0, 0.513726, 1)
+[node name="MissileLauncher" parent="." instance=ExtResource("3_brqpx")]
+position = Vector2(288, 184)
+rotation = 1.5708
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(16, 16, 16, 264, 96, 256, 208, 216, 232, 264, 280, 216, 320, 264, 376, 216, 488, 248, 584, 264, 592, 8, 432, 40, 152, 40)
+[node name="Sprites" type="Node2D" parent="."]
 
-[node name="Cannon" parent="." instance=ExtResource("1_k8i2r")]
-position = Vector2(80, 80)
+[node name="WingBottomLeft" type="Sprite2D" parent="Sprites"]
+position = Vector2(141.5, 162.5)
+texture = ExtResource("3_dkpj8")
 
-[node name="Cannon2" parent="." instance=ExtResource("1_k8i2r")]
-position = Vector2(504, 80)
+[node name="WingTopLeft" type="Sprite2D" parent="Sprites"]
+position = Vector2(141.5, 82.5)
+texture = ExtResource("4_ojgjv")
+
+[node name="Cannon" parent="Sprites/WingTopLeft" instance=ExtResource("1_k8i2r")]
+position = Vector2(-40.5, 2.5)
+
+[node name="WingBottomRight" type="Sprite2D" parent="Sprites"]
+position = Vector2(447.5, 161.5)
+texture = ExtResource("6_xfllh")
+
+[node name="WingTopRight" type="Sprite2D" parent="Sprites"]
+position = Vector2(445.5, 81.5)
+texture = ExtResource("7_l52yf")
+
+[node name="Cannon2" parent="Sprites/WingTopRight" instance=ExtResource("1_k8i2r")]
+position = Vector2(48.5, 1.5)
 rotate_left_key = 73
 rotate_right_key = 80
 fire_key = 79
 
-[node name="MissileLauncher" parent="." instance=ExtResource("3_brqpx")]
-position = Vector2(288, 184)
-rotation = 1.5708
+[node name="Midsection" type="Sprite2D" parent="Sprites"]
+position = Vector2(293.5, 121.5)
+texture = ExtResource("4_5geme")
+
+[node name="Midconnector" type="Sprite2D" parent="Sprites"]
+position = Vector2(292.5, 168.5)
+texture = ExtResource("9_juvl2")
+
+[node name="Head" type="Sprite2D" parent="Sprites"]
+position = Vector2(293.5, 96.5)
+texture = ExtResource("5_dae2v")
+
+[node name="Stinger" type="Sprite2D" parent="Sprites"]
+z_index = -1
+position = Vector2(293.5, 308.5)
+texture = ExtResource("11_dms2j")
+
+[node name="Thorax" type="Sprite2D" parent="Sprites"]
+position = Vector2(292.5, 239.5)
+texture = ExtResource("12_fdo8e")
+
+[node name="ThoraxMask" type="Sprite2D" parent="Sprites/Thorax"]
+clip_children = 1
+z_index = -1
+texture = ExtResource("13_a8wy3")
+
+[node name="TextureRect" type="TextureRect" parent="Sprites/Thorax/ThoraxMask"]
+offset_left = -59.0
+offset_top = -86.0
+offset_right = 64.0
+offset_bottom = 61.0
+texture = SubResource("GradientTexture2D_3qx1k")
+expand_mode = 1
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprites"]
+autoplay = "Laser Charge"
+libraries = {
+"": SubResource("AnimationLibrary_gq7n4")
+}
+
+[node name="TheHiveFull" type="Sprite2D" parent="."]
+visible = false
+z_index = -7
+position = Vector2(-288, 240)
+texture = ExtResource("14_wc1sf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(263, 299, 322, 299, 353, 212, 337, 157, 382, 189, 543, 184, 494, 126, 542, 53, 45, 54, 102, 119, 44, 185, 205, 191, 252, 158, 230, 212)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

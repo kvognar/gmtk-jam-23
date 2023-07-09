@@ -1,15 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjjwv0le10nw3"]
+[gd_scene load_steps=16 format=3 uid="uid://bh56h6cdn20i7"]
 
-[ext_resource type="Texture2D" uid="uid://llx3u758s3c2" path="res://Assets/Sprites/mosquito-64.png" id="1_tvrgr"]
-[ext_resource type="Script" path="res://Objects/mosquito.gd" id="1_woefe"]
-[ext_resource type="PackedScene" uid="uid://crssu6c1qrs5e" path="res://Utilities/emitter.tscn" id="3_nd0jg"]
-[ext_resource type="PackedScene" uid="uid://b05kc22a1p0nx" path="res://Objects/mosquito_bullet.tscn" id="4_y10fw"]
-[ext_resource type="Texture2D" uid="uid://d0applnm0ng6j" path="res://Assets/Sprites/Effects/Explosion.png" id="5_j08pk"]
+[ext_resource type="Script" path="res://Objects/mosquito.gd" id="1_w22ch"]
+[ext_resource type="Texture2D" uid="uid://dhpb1nai16qgj" path="res://Assets/Sprites/Mosquito-16.png" id="2_a2r6b"]
+[ext_resource type="PackedScene" uid="uid://crssu6c1qrs5e" path="res://Utilities/emitter.tscn" id="3_obr3n"]
+[ext_resource type="PackedScene" uid="uid://b05kc22a1p0nx" path="res://Objects/mosquito_bullet.tscn" id="4_3j0uj"]
+[ext_resource type="Texture2D" uid="uid://d0applnm0ng6j" path="res://Assets/Sprites/Effects/Explosion.png" id="5_pv7s1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pm1b5"]
-radius = 24.0
+radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_asp0t"]
+radius = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vpkhk"]
 radius = 128.0
@@ -19,7 +20,7 @@ resource_name = "Explode"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mosquito-64:hframes")
+tracks/0/path = NodePath("Sprite:hframes")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -31,7 +32,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Mosquito-64:vframes")
+tracks/1/path = NodePath("Sprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -43,7 +44,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Mosquito-64:frame")
+tracks/2/path = NodePath("Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -55,19 +56,19 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Mosquito-64:texture")
+tracks/3/path = NodePath("Sprite:texture")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_j08pk")]
+"values": [ExtResource("5_pv7s1")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Mosquito-64:visible")
+tracks/4/path = NodePath("Sprite:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -82,19 +83,19 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mosquito-64:texture")
+tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_tvrgr")]
+"values": [ExtResource("2_a2r6b")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Mosquito-64:hframes")
+tracks/1/path = NodePath("Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -106,7 +107,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Mosquito-64:vframes")
+tracks/2/path = NodePath("Sprite:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -118,7 +119,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Mosquito-64:frame")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -130,7 +131,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Mosquito-64:visible")
+tracks/4/path = NodePath("Sprite:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -145,19 +146,19 @@ resource_name = "default"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mosquito-64:texture")
+tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("1_tvrgr")]
+"values": [ExtResource("2_a2r6b"), ExtResource("2_a2r6b")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Mosquito-64:hframes")
+tracks/1/path = NodePath("Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -169,7 +170,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Mosquito-64:vframes")
+tracks/2/path = NodePath("Sprite:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -181,7 +182,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Mosquito-64:frame")
+tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -193,7 +194,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Mosquito-64:visible")
+tracks/4/path = NodePath("Sprite:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -215,7 +216,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mosquito-64:modulate")
+tracks/0/path = NodePath("Sprite:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -230,7 +231,7 @@ resource_name = "blink"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mosquito-64:modulate")
+tracks/0/path = NodePath("Sprite:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -246,16 +247,16 @@ _data = {
 "blink": SubResource("Animation_b7h6q")
 }
 
-[node name="Mosquito" type="CharacterBody2D"]
+[node name="MosquitoSmall" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 512
-script = ExtResource("1_woefe")
+script = ExtResource("1_w22ch")
 
-[node name="Mosquito-64" type="Sprite2D" parent="."]
-texture = ExtResource("1_tvrgr")
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_a2r6b")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
+position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_pm1b5")
 
 [node name="Hurtbox" type="Area2D" parent="."]
@@ -268,14 +269,15 @@ shape = SubResource("CircleShape2D_asp0t")
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BulletAvoider"]
+position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_vpkhk")
 
-[node name="Emitter" parent="." instance=ExtResource("3_nd0jg")]
+[node name="Emitter" parent="." instance=ExtResource("3_obr3n")]
 rotation = -1.5708
 fire_speed = 500
 fire_angle = 4.712
 rotation_speed = 0.0
-bullet_type = ExtResource("4_y10fw")
+bullet_type = ExtResource("4_3j0uj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "default"
@@ -288,8 +290,8 @@ libraries = {
 "": SubResource("AnimationLibrary_ofi8b")
 }
 
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="area_entered" from="BulletAvoider" to="." method="_on_bullet_avoider_area_entered"]
-[connection signal="area_exited" from="BulletAvoider" to="." method="_on_bullet_avoider_area_exited"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="animation_finished" from="EffectsAnimationPlayer" to="." method="_on_effects_animation_player_animation_finished"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered" flags=18]
+[connection signal="area_entered" from="BulletAvoider" to="." method="_on_bullet_avoider_area_entered" flags=18]
+[connection signal="area_exited" from="BulletAvoider" to="." method="_on_bullet_avoider_area_exited" flags=18]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished" flags=18]
+[connection signal="animation_finished" from="EffectsAnimationPlayer" to="." method="_on_effects_animation_player_animation_finished" flags=18]
