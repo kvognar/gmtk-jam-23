@@ -67,11 +67,12 @@ func _on_bullet_avoider_area_exited(area):
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Explode":
-		respawn()
 		died.emit()
+		if ScoreKeeper.lives > 0:
+			respawn()
+		
 
 func explode():
-	print_debug(respawn_point)
 	$AnimationPlayer.play("Explode")
 	$Emitter.set_firing(false)
 	state = STATES.EXPLODING
@@ -81,7 +82,6 @@ func respawn():
 	$AnimationPlayer.play("default")
 	state = STATES.BLINKING
 	global_position = respawn_point + Vector2(0, 400)
-	print_debug(global_position)
 
 func _on_effects_animation_player_animation_finished(anim_name):
 	if anim_name == "blink":

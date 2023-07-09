@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=3 uid="uid://8gyffi0f40g5"]
+
+[ext_resource type="Script" path="res://Utilities/GameOverScreen.gd" id="1_cb1bj"]
+[ext_resource type="PackedScene" uid="uid://blhcb8e2wnusn" path="res://UI/text_box.tscn" id="2_puag8"]
+
+[sub_resource type="Animation" id="Animation_clq0j"]
+resource_name = "Vanish"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ym0ef"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o1epg"]
+_data = {
+"RESET": SubResource("Animation_ym0ef"),
+"Vanish": SubResource("Animation_clq0j")
+}
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cb1bj")
+
+[node name="GameOver" parent="." instance=ExtResource("2_puag8")]
+layout_mode = 2
+offset_left = 623.0
+offset_top = 269.0
+offset_right = 975.0
+offset_bottom = 334.0
+theme_override_font_sizes/normal_font_size = 56
+text = "Game Over"
+scroll_active = false
+
+[node name="Continue" parent="." instance=ExtResource("2_puag8")]
+layout_mode = 2
+offset_left = 713.0
+offset_top = 387.0
+offset_right = 889.0
+offset_bottom = 439.0
+text = "Continue?"
+
+[node name="ContinuePrice" parent="." instance=ExtResource("2_puag8")]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.103
+anchor_bottom = 0.132
+offset_left = 664.0
+offset_top = 517.0
+offset_right = 762.2
+offset_bottom = 432.2
+text = "Insert 50 cents"
+
+[node name="GameOverCountdown" parent="." instance=ExtResource("2_puag8")]
+layout_mode = 0
+offset_left = 696.0
+offset_top = 564.0
+offset_right = 906.0
+offset_bottom = 756.0
+theme_override_font_sizes/normal_font_size = 140
+text = "10"
+
+[node name="GameOverTimer" type="Timer" parent="."]
+
+[node name="InsertQuarterTimer" type="Timer" parent="."]
+wait_time = 2.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o1epg")
+}
+
+[connection signal="timeout" from="GameOverTimer" to="." method="_on_game_over_timer_timeout"]
+[connection signal="timeout" from="InsertQuarterTimer" to="." method="_on_insert_quarter_timer_timeout"]

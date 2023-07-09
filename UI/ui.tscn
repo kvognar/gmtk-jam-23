@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://73hn5exfdvlc"]
+[gd_scene load_steps=15 format=3 uid="uid://73hn5exfdvlc"]
 
 [ext_resource type="PackedScene" uid="uid://blhcb8e2wnusn" path="res://UI/text_box.tscn" id="1_7stbh"]
 [ext_resource type="FontFile" uid="uid://bjk7glv5kqlch" path="res://Assets/Fonts/tinypixel.otf" id="1_ceb6r"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://UI/mosquito_score_counter.gd" id="4_o5nrq"]
 [ext_resource type="Script" path="res://UI/HealthBar.gd" id="6_8xuuj"]
 [ext_resource type="PackedScene" uid="uid://yus1loxriev2" path="res://Utilities/portraits_balloon/balloon.tscn" id="6_urm4u"]
+[ext_resource type="PackedScene" uid="uid://8gyffi0f40g5" path="res://Utilities/game_over_screen.tscn" id="10_a1pab"]
 
 [sub_resource type="Gradient" id="Gradient_5np5i"]
 
@@ -95,3 +96,19 @@ nine_patch_stretch = true
 texture_under = SubResource("GradientTexture1D_1a6xr")
 texture_progress = SubResource("GradientTexture1D_ekmx0")
 script = ExtResource("6_8xuuj")
+
+[node name="GameOverScreen" parent="." instance=ExtResource("10_a1pab")]
+visible = false
+offset_left = -816.0
+offset_top = -352.0
+offset_right = -816.0
+offset_bottom = -352.0
+
+[node name="ContinuePrice" parent="GameOverScreen" index="2"]
+offset_right = 928.0
+offset_bottom = 560.0
+
+[connection signal="game_over" from="Game" to="GameOverScreen" method="_on_game_game_over"]
+[connection signal="continue_game" from="GameOverScreen" to="Game" method="_on_game_over_screen_continue_game"]
+
+[editable path="GameOverScreen"]
