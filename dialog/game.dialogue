@@ -1,9 +1,6 @@
 ~ start
 
-Intern_salut: this is start.[next=0.5]
-Intern: and then another dialog.[next=0.5]
-Intern_frazzled: OMG IT WORKS??? HOW.[next=0.5]
-Intern_sheepish: I don't know because I am not very good at this.[next=0.5]
+Intern_salut: Here we go...[next=0.5]
 
 => END
 
