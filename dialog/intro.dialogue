@@ -1,8 +1,21 @@
 ~ start
 
-Intern_salut: this is start.[next=0.5]
-Intern: and then another dialog.[next=0.5]
-Intern_frazzled: OMG IT WORKS??? HOW.[next=0.5]
-Intern_sheepish: I don't know because I am not very good at this.[next=0.5]
+Supervisor_1: Who the hell are you?[next=0.5]
+
+Intern_salut: Ma’am! I am the new transfer to the Weapons Department, Ma’am![next=0.5]
+
+Supervisor_2: I lose all my staff to the Development Department and they send me ONE new intern?[next=0.5]
+Supervisor_3: *sigh* Okay, look, I don’t have time to explain the controls right now. I’m due for a very important meeting with the Queen herself![next=0.5]
+Supervisor_4: Rule One: NEVER leave the console unattended for any reason. Rule Two: NEVER fire on anything less than a hero coming to spoil our plans.[next=0.5]
+Supervisor_5: We’re in orbit around the Hive Planet, so there’s no need to steer. And there shouldn’t be any heroes within a lightyear, so there shouldn’t be any need to fire weapons.[next=0.5]
+Supervisor_6: All I need you to do is watch the controls and make sure we don’t crash into the Planet. Got it?[next=0.5]
+Intern_eager: Ma’am! Yes, Ma’am![next=0.5]
+Supervisor_7: Good enough. I’ll be back in an hour.[next=0.5]
+(The SUPERVISOR leaves to attend her meeting.)[next=0.5]
+(On the viewscreen, a portal opens up and the MOSQUITO comes tearing through.)[next=0.5]
+
+Intern_worried: Rule Two: NEVER fire on anything less than a hero coming to spoil our plans…[next=0.5]
+Intern_frazzled: But this IS a hero…[next=0.5]
+Intern_determined: So I have no choice… but to fire everything we’ve got!!![next=1]
 
 => END
