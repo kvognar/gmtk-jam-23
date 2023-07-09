@@ -11,7 +11,6 @@ func _ready():
 
 func _on_dialog_end() -> void:
 	get_node("/root/Dialog").in_dialog = false
-	print_debug("dialog ended")
 	await get_tree().create_timer(5).timeout
 	get_node("/root/Dialog").recently_displayed = false
 
