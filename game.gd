@@ -16,7 +16,7 @@ func _ready():
 
 func _on_mosquito_died():
 	score_keeper.update_lives(-1)
-	for child in bullet_pool.get_children():
+	for child in bullet_pool.bullet_node.get_children():
 		child.queue_free()
 		
 	if score_keeper.lives < 1:
