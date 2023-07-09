@@ -1,11 +1,12 @@
 extends Node
 
 const MAX_LIVES = 3
+const MAX_HEALTH = 10000
 var lives = MAX_LIVES
 var current_phase = 1
 var score = 0
 
-var boss_health = 10000
+var boss_health = MAX_HEALTH
 
 signal lives_changed(new_lives: int)
 signal score_changed(new_score: int)

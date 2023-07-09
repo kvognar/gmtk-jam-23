@@ -1,10 +1,3 @@
-~ this_is_a_node_title
-
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.[next=0.5]
-Nathan: For more information see the online documentation.[next=0.5]
-
-=> END
-
 ~ start
 
 Intern_salut: this is start.[next=0.5]
@@ -18,5 +11,73 @@ Intern_sheepish: I don't know because I am not very good at this.[next=0.5]
 
 Intern_frazzled: aaah we got hit.[next=0.5]
 Intern_frazzled: aaah try hitting buttons.[next=0.5]
+
+=> END
+
+~ doing_well
+
+% Intern_frazzled: Please take it easy on me! This is only my first day![next=0.5]
+% Intern_worried: I’ll swat you![wait=0.5] …Sorry, that was a very rude word.[next=0.5]
+% Intern_worried: What does this button do?![next=0.5]
+% Intern_determined: I’ll slap you with a newspaper![wait=0.5] …One of these buttons has to be a newspaper![next=0.5]
+% Intern_determined: A hero isn’t going to stop the Queen! Not on my watch![next=0.5]
+% Intern_frazzled: Did I press this one already?[next=0.5]
+% Intern_worried: I don’t want to be promoted anymore![next=0.5]
+% Intern_frazzled: What do I do now?![next=0.5]
+% Intern_worried: I don’t know what I’m doing![next=0.5]
+
+=> END
+
+~ doing_poorly
+
+% Intern_worried: I want to go back to the Training Cells![next=0.5]
+% Intern_determined: ARGH! Stay still, you bugger![next=0.5]
+% Intern_worried: I’m going to die! And then lose my job![next=0.5]
+% Intern_frazzled: This is bad! This is very bad![next=0.5]
+% Intern_pissed: Why isn’t this working?![next=0.5]
+% Intern_worried: Where is it?! Where did it go?![next=0.5]
+% Intern_pissed: How can anybody remember what all these buttons do?![next=0.5]
+% Intern_worried: Ma’am, please come back soon![next=0.5]
+
+=> END
+
+~ taking_significant_damage
+
+% Intern_panic: I’ve got this under control—[speed=2]AUGH! NO I DON’T![next=0.5]
+% Intern_panic: Ready, aim…[wait=0.5] AUGH! What was that?![next=0.5]
+% Intern_panic: GET AWAY FROM ME![next=0.5]
+% Intern_panic: SOMEBODY HELP![next=0.5]
+% Intern_panic: THIS IS SCARY![next=0.5]
+
+=> END
+
+~ mosquito_death_1
+
+% Intern_worried: Wait, there’s another one?![next=0.5]
+% Intern_panic: Another one?! That’s not fair![next=0.5]
+% Intern_determined: I got you once, you bugger, I can do it again![next=0.5]
+% Intern_determined: I said you wouldn’t get past me! And you won’t![next=0.5]
+% Intern_panic: An extra life? Why doesn’t the Queen’s ship get an extra life?![next=0.5]
+
+=> END
+
+~ mosquito_death_2
+
+% Intern_pissed: [speed=2]OH COME ON![next=0.5]
+% Intern_pissed: Is it gone now—[speed=2]YOU CAN’T BE SERIOUS![next=0.5]
+% Intern_panic: [speed=2]HOW AM I SUPPOSED TO HIT THAT?![next=0.5]
+% Intern_pissed: [speed=2]MORE BUTTONS! ALL THE BUTTONS![next=0.5]
+% Intern_pissed: [speed=2]THAT’S IT! NO MORE HOLDING BACK! RAWRG![next=0.5]
+% Intern_pissed: [speed=2]THAT’S IT! WHERE’S THE ONE-WINGED ANGEL BUTTON?![next=0.5]
+
+=> END
+
+~ mosquito_death_3
+
+% Intern_determined: I did it?[wait=0.5] …I did it![next=1]
+% Intern_frazzled: Where is it?![wait=0.5] …Wait, did I get it this time?![next=1]
+% Intern_snarky: YES! TAKE THAT, YOU BUGGER![next=1]
+% Intern_frazzled: Wait, that button actually worked?![next=1]
+% Intern_snarky: HEY! I did it! Mosquito successfully swatted![next=1]
 
 => END
