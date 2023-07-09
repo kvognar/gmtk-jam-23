@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://game.gd" id="1_hqd4s"]
 [ext_resource type="PackedScene" uid="uid://bjjwv0le10nw3" path="res://Objects/mosquito.tscn" id="2_tgu51"]
-[ext_resource type="PackedScene" uid="uid://brabnmhxeq2ip" path="res://Objects/big_boss.tscn" id="3_tnxwn"]
+[ext_resource type="PackedScene" path="res://Objects/big_boss.tscn" id="3_tnxwn"]
 [ext_resource type="PackedScene" uid="uid://h6guih41hxjt" path="res://Utilities/wall.tscn" id="3_y03qi"]
 [ext_resource type="PackedScene" uid="uid://bh56h6cdn20i7" path="res://Objects/mosquito_small.tscn" id="5_15fye"]
 
