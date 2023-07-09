@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bi2afaq273fgy"]
+[gd_scene load_steps=13 format=3 uid="uid://bi2afaq273fgy"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_hqd4s"]
 [ext_resource type="PackedScene" uid="uid://bjjwv0le10nw3" path="res://Objects/mosquito.tscn" id="2_tgu51"]
@@ -22,63 +22,75 @@ size = Vector2(608, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4vmn3"]
 size = Vector2(66, 937)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_ky7qv"]
+viewport_path = NodePath("Viewport")
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_hqd4s")
-
-[node name="PlayArea" type="Area2D" parent="."]
-position = Vector2(4, 10)
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayArea"]
-position = Vector2(293, 443.5)
-shape = SubResource("RectangleShape2D_hgnjm")
-debug_color = Color(0, 0.6, 0.701961, 0)
-
-[node name="Wall" parent="." instance=ExtResource("3_y03qi")]
-
-[node name="CollisionShape2D" parent="Wall" index="0"]
-position = Vector2(-112, 448)
-shape = SubResource("RectangleShape2D_oh6rj")
-
-[node name="Wall2" parent="." instance=ExtResource("3_y03qi")]
-position = Vector2(160, -120)
-
-[node name="CollisionShape2D" parent="Wall2" index="0"]
-position = Vector2(149.5, 55.5)
-shape = SubResource("RectangleShape2D_ugk7i")
-
-[node name="Bullets" type="Node2D" parent="."]
-unique_name_in_owner = true
-
-[node name="BigBoss" parent="." instance=ExtResource("3_tnxwn")]
-
-[node name="Wall3" parent="." instance=ExtResource("3_y03qi")]
-
-[node name="CollisionShape2D" parent="Wall3" index="0"]
-position = Vector2(296, 928)
-shape = SubResource("RectangleShape2D_xk5a4")
-
-[node name="Wall4" parent="." instance=ExtResource("3_y03qi")]
-
-[node name="CollisionShape2D" parent="Wall4" index="0"]
-position = Vector2(640, 467.5)
-shape = SubResource("RectangleShape2D_4vmn3")
-
-[node name="Mosquito" parent="." instance=ExtResource("2_tgu51")]
-position = Vector2(296, 704)
-
-[node name="StarField" parent="." instance=ExtResource("5_dv11a")]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_mlupp")
 volume_db = -5.0
 autoplay = true
 
-[connection signal="was_hit" from="BigBoss" to="." method="_on_big_boss_was_hit"]
-[connection signal="died" from="Mosquito" to="." method="_on_mosquito_died"]
+[node name="Viewport" type="SubViewport" parent="."]
+audio_listener_enable_2d = true
+size = Vector2i(600, 900)
 
-[editable path="Wall"]
-[editable path="Wall2"]
-[editable path="Wall3"]
-[editable path="Wall4"]
+[node name="StarField" parent="Viewport" instance=ExtResource("5_dv11a")]
+
+[node name="PlayArea" type="Area2D" parent="Viewport"]
+position = Vector2(4, 10)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Viewport/PlayArea"]
+position = Vector2(293, 443.5)
+shape = SubResource("RectangleShape2D_hgnjm")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="Wall" parent="Viewport" instance=ExtResource("3_y03qi")]
+
+[node name="CollisionShape2D" parent="Viewport/Wall" index="0"]
+position = Vector2(-112, 448)
+shape = SubResource("RectangleShape2D_oh6rj")
+
+[node name="Wall2" parent="Viewport" instance=ExtResource("3_y03qi")]
+position = Vector2(160, -120)
+
+[node name="CollisionShape2D" parent="Viewport/Wall2" index="0"]
+position = Vector2(149.5, 55.5)
+shape = SubResource("RectangleShape2D_ugk7i")
+
+[node name="Bullets" type="Node2D" parent="Viewport"]
+unique_name_in_owner = true
+
+[node name="BigBoss" parent="Viewport" instance=ExtResource("3_tnxwn")]
+
+[node name="Wall3" parent="Viewport" instance=ExtResource("3_y03qi")]
+
+[node name="CollisionShape2D" parent="Viewport/Wall3" index="0"]
+position = Vector2(296, 928)
+shape = SubResource("RectangleShape2D_xk5a4")
+
+[node name="Wall4" parent="Viewport" instance=ExtResource("3_y03qi")]
+
+[node name="CollisionShape2D" parent="Viewport/Wall4" index="0"]
+position = Vector2(640, 467.5)
+shape = SubResource("RectangleShape2D_4vmn3")
+
+[node name="Mosquito" parent="Viewport" instance=ExtResource("2_tgu51")]
+position = Vector2(296, 704)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("ViewportTexture_ky7qv")
+
+[connection signal="was_hit" from="Viewport/BigBoss" to="." method="_on_big_boss_was_hit"]
+[connection signal="died" from="Viewport/Mosquito" to="." method="_on_mosquito_died"]
+
+[editable path="Viewport/Wall"]
+[editable path="Viewport/Wall2"]
+[editable path="Viewport/Wall3"]
+[editable path="Viewport/Wall4"]

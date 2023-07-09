@@ -10,8 +10,9 @@ signal game_over
 
 func _ready():
 	bullet_pool = get_node("/root/BulletPool")
+	bullet_pool.bullet_node = $Viewport/Bullets
 	score_keeper = get_node("/root/ScoreKeeper")
-	mosquito = $Mosquito
+	mosquito = $Viewport/Mosquito
 
 func _on_mosquito_died():
 	score_keeper.update_lives(-1)
@@ -37,7 +38,7 @@ func continue_game():
 		return
 	mosquito.queue_free()
 	mosquito = next_mosquito_type.instantiate()
-	add_child(mosquito)
+	$Viewport.add_child(mosquito)
 	mosquito.set_deferred("respawn_point", respawn_point)
 	mosquito.call_deferred("respawn")
 	mosquito.died.connect(_on_mosquito_died)

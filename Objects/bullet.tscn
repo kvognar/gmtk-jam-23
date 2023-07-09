@@ -166,3 +166,9 @@ shape = SubResource("CircleShape2D_lntux")
 sprite_frames = SubResource("SpriteFrames_0pu8x")
 autoplay = "default"
 frame_progress = 0.861918
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

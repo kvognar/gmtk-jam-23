@@ -24,7 +24,7 @@ func emit():
 	var new_bullet = bullet_type.instantiate()
 	var fire_velocity = Vector2.from_angle(global_rotation) * fire_speed
 	new_bullet.velocity = fire_velocity
-	bullet_pool.add_child(new_bullet)
+	bullet_pool.bullet_node.add_child(new_bullet)
 	new_bullet.global_position = global_position
 
 

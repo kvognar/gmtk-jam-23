@@ -19,7 +19,6 @@ func _on_dialog_end() -> void:
 	get_node("/root/Dialog").recently_displayed = false
 	
 func _on_lives_changed(lives):
-	print_debug(lives)
 	if lives == 2:
 		show_dialogue("mosquito_death_1", true)
 	elif lives == 1:

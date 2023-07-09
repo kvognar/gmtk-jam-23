@@ -8,3 +8,7 @@ func _init():
 func _physics_process(delta):
 	position = position + (velocity * delta)
 	
+
+
+func _on_timer_timeout():
+	queue_free()

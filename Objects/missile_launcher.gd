@@ -41,7 +41,7 @@ func _process(_delta):
 					missile.global_position = global_position
 					missile.global_rotation = global_rotation
 					missile.target_node = bullet_pool.mosquito
-					bullet_pool.add_child(missile)
+					bullet_pool.bullet_node.add_child(missile)
 
 
 func close():
