@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://bogtxgqj8rteu"]
+
+[ext_resource type="Script" path="res://Scenes/intro.gd" id="1_csjpq"]
+[ext_resource type="PackedScene" uid="uid://yus1loxriev2" path="res://Utilities/portraits_balloon/balloon.tscn" id="2_vgiqa"]
+[ext_resource type="Resource" uid="uid://bmil2r4a27ho3" path="res://dialog/intro.dialogue" id="3_wnn7g"]
+
+[node name="intro" type="Node2D"]
+script = ExtResource("1_csjpq")
+Balloon = ExtResource("2_vgiqa")
+dialogue_resource = ExtResource("3_wnn7g")
