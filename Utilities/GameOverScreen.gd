@@ -8,6 +8,7 @@ var price_remaining = 50
 @onready var coin_sound = load("res://Assets/SFX/coin-3.wav")
 
 signal continue_game
+signal end_game
 
 func _ready():
 	set_game_over_timer()
@@ -56,6 +57,7 @@ func _on_insert_quarter_timer_timeout():
 	else:
 		print_debug("No more quarters")
 		$InsertQuarterTimer.stop()
+		end_game.emit()
 	
 
 
